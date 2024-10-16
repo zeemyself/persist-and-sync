@@ -69,7 +69,7 @@ export const persistNSync: PersistNSyncType = (stateCreator, options) => (set, g
 
 	const set_: typeof set = (newStateOrPartialOrFunction, replace) => {
 		const prevState = get() as Record<string, any>;
-		set(newStateOrPartialOrFunction, replace);
+		set(newStateOrPartialOrFunction, replace as any);
 		const newState = get() as Record<string, any>;
 		saveAndSync({ newState, prevState, options });
 	};
